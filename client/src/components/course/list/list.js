@@ -10,6 +10,7 @@ class ListCourse extends Component {
             subjects: []
         }
         this.viewSubjects = this.viewSubjects.bind(this);
+        this.calculate= this.calculate.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +29,14 @@ class ListCourse extends Component {
                alert('Name Of Subject is :' + data.data['name'] + ' And Amount Rs : ' + data.data['amount']);
            }
        )
+    }
+
+    calculate(id){
+        axios.get('http://localhost:8085/course/calculate/'+id).then(
+            data => {
+                alert('Cost : ' + data);
+            }
+        )
     }
     render() {
         return (
@@ -50,6 +59,7 @@ class ListCourse extends Component {
                                         <td>{cou.passMark}</td>
                                         <td>{cou.lectureInCharge}</td>
                                         <td><button onClick={this.viewSubjects.bind(this,cou.subject)}>View Subject Info</button></td>
+                                        <td><button onClick={this.calculate.bind(this,cou.subject)}>Cost</button></td>
                                     </tr>
                                 )
                             })

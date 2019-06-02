@@ -12,7 +12,7 @@ public class Course {
 	private String code;
 	private String passMark;
 	private String lectureInCharge;
-	private List<Subject> subject;
+	private List<String> subject;
 
 	public String getName() {
 		return name;
@@ -46,11 +46,11 @@ public class Course {
 		this.lectureInCharge = lectureInCharge;
 	}
 
-	public List<Subject> getSubject() {
+	public List<String> getSubject() {
 		return subject;
 	}
 
-	public void setSubject(List<Subject> subject) {
+	public void setSubject(List<String> subject) {
 		this.subject = subject;
 	}
 
