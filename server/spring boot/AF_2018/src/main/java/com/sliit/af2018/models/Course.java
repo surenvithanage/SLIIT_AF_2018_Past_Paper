@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 @Document(collection = "courses")
 public class Course {
 	private String name;
@@ -13,6 +11,19 @@ public class Course {
 	private String passMark;
 	private String lectureInCharge;
 	private List<String> subject;
+
+	public Course() {
+		super();
+	}
+
+	public Course(String name, String code, String passMark, String lectureInCharge, List<String> subject) {
+		super();
+		this.name = name;
+		this.code = code;
+		this.passMark = passMark;
+		this.lectureInCharge = lectureInCharge;
+		this.subject = subject;
+	}
 
 	public String getName() {
 		return name;
